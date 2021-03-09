@@ -10,18 +10,33 @@
 //   return divNum.length;
 // }
 // console.log(getDivisorsCnt(54));
+/*------------------------------------------------*/
+// function findSum(n) {
+//   let arr = [];
+//   for (let i = 0; i <= n; i += 1) {
+//     arr.push(i);
+//   }
 
-function findSum(n) {
-  let arr = [];
-  for (let i = 0; i <= n; i += 1) {
-    arr.push(i);
-  }
-
-  return arr.reduce((acc, item) => {
-    if (item % 3 === 0 || item % 5 === 0) {
-      acc += item;
+//   return arr.reduce((acc, item) => {
+//     if (item % 3 === 0 || item % 5 === 0) {
+//       acc += item;
+//     }
+//     return acc;
+//   }, 0);
+// }
+// console.log(findSum(5));
+/*------------------------------------------------*/
+// function reverseWords(str) {
+//   return str.split(" ").reverse().join(" ").split("").reverse().join("");
+// }
+// console.log(reverseWords("The quick brown fox jumps over the lazy dog."));
+/*------------------------------------------------*/
+function friend(friends) {
+  return friends.reduce((acc, friend) => {
+    if (friend.length === 4) {
+      acc.push(friend);
     }
     return acc;
-  }, 0);
+  }, []);
 }
-console.log(findSum(5));
+console.log(friend(["Ryan", "Kieran", "Mark"]));
