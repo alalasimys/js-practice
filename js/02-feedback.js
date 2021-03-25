@@ -1,0 +1,80 @@
+const STORAGE_KEY = "feedback-msg";
+
+const refs = {
+  form: document.querySelector(".js-feedback-form"),
+  textarea: document.querySelector(".js-feedback-form  textarea"),
+  name: document.querySelector(".js-feedback-form input[name='name']"),
+  check: document.querySelector(".js-feedback-form  input[name='checkbox']"),
+};
+
+// console.dir(refs.check);
+
+refs.form.addEventListener("submit", onFormSubmit);
+refs.textarea.addEventListener("input", onTextareaInput);
+
+populateTextarea();
+onSavedForm();
+
+/*
+ * - Останавливаем поведение по умолчанию
+ * - Убираем сообщение из хранилища
+ * - Очищаем форму
+ */
+function onFormSubmit(evt) {
+  evt.preventDefault();
+
+  console.log("Отправляем форму");
+  evt.currentTarget.reset();
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+/*
+ * - Получаем значение поля
+ * - Сохраняем его в хранилище
+ * - Можно добавить throttle
+ */
+function onTextareaInput(evt) {
+  const message = evt.target.value;
+
+  localStorage.setItem(STORAGE_KEY, message);
+}
+
+/*
+ * - Получаем значение из хранилища
+ * - Если там что-то было, обновляем DOM
+ */
+function populateTextarea() {
+  const savedMessage = localStorage.getItem(STORAGE_KEY);
+
+  if (savedMessage) {
+    refs.textarea.value = savedMessage;
+  }
+}
+
+// Домой
+// сделать так чтобы сохраняло не только сообщение но и имя, и все в одном обьекте
+
+// const formData = {};
+
+refs.form.addEventListener("input", (e) => {
+  // console.log(e.target.name);
+  // console.log(e.target.value);
+  const formData = localStorage.getItem("form-store")
+    ? JSON.parse(localStorage.getItem("form-store"))
+    : {};
+
+  formData[e.target.name] = e.target.value;
+  if (e.target.name === "checkbox") {
+    formData[e.target.name] = e.target.checked;
+  }
+  // console.log(formData);
+  localStorage.setItem("form-store", JSON.stringify(formData));
+});
+
+function onSavedForm() {
+  const savedForm = JSON.parse(localStorage.getItem("form-store"));
+  if (savedForm) {
+    refs.name.value = savedForm["name"];
+    refs.check.checked = savedForm["checkbox"];
+  }
+}
