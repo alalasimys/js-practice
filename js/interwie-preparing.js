@@ -20,12 +20,62 @@
 // } else {
 //   alert("Не знаете? ECMAScript");
 // }
+//---Замыкание
+// const sum = (a = 0) => {
+//   return (b) => {
+//     if (!b && typeof b !== "number") return a;
+//     return sum(a + b);
+//   };
+// };
 
-const sum = (a = 0) => {
-  return (b) => {
-    if (!b && typeof b !== "number") return a;
-    return sum(a + b);
-  };
-};
+// console.log(sum(1)(2)(3)(10)()); //16
+// ---------------------------------------
+// let i = 0;
+// while (++i < 5) alert(i); //from 0 to 4
 
-console.log(sum(1)(2)(3)(10)()); //16
+// let i = 0;
+// while (i++ < 5) alert(i); from 0 to 5
+// ---------------------------------------
+// let message = prompt("Введите число", "");
+// while (message < 100) {
+//   if (message === null) break;
+//   message = prompt("Введите еще раз", "");
+// }
+
+// -----Вывести простые числа
+
+/* 
+let n = 10;
+mark: for (let i = 2; i <= n; i++) {
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0) continue mark;
+  }
+  alert(i);
+}
+*/
+
+/*
+function showPrimes(n) {
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) continue;
+    alert(i);
+  }
+}
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+showPrimes(10);
+*/
+// -----
+// function checkAge(age) {
+//   // return age > 18 ? true : confirm("Родители разрешили?");
+//   return age > 18 || confirm("Родители разрешили?");
+// }
+// -----
+function min(a, b) {
+  return a > b ? a : b;
+}

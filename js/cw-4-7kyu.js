@@ -101,15 +101,8 @@ const tagCount = countTags(tags);
 console.log(tagCount); */
 //---------------------------------------------
 function isSameLanguage(list) {
-  return list.every(
-    (dev) =>
-      dev.language === "Ruby" ||
-      "Java" ||
-      "JavaScript" ||
-      "Python" ||
-      "Java" ||
-      "C"
-  );
+  list.every((val) => val.language === list[0].language);
+  //new Set(list.map(cur => cur.language)).size === 1;
 }
 
 var list2 = [
@@ -163,6 +156,35 @@ console.log(
       continent: "Europe",
       age: 55,
       language: "Java",
+    },
+  ])
+);
+
+console.log(
+  isSameLanguage([
+    {
+      firstName: "Mark",
+      lastName: "G.",
+      country: "Scotland",
+      continent: "Europe",
+      age: 22,
+      language: "JavaScript",
+    },
+    {
+      firstName: "Victoria",
+      lastName: "T.",
+      country: "Puerto Rico",
+      continent: "Americas",
+      age: 30,
+      language: "Clojure",
+    },
+    {
+      firstName: "Emma",
+      lastName: "B.",
+      country: "Norway",
+      continent: "Europe",
+      age: 19,
+      language: "Clojure",
     },
   ])
 );
