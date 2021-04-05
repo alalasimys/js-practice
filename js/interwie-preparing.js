@@ -76,6 +76,56 @@ showPrimes(10);
 //   return age > 18 || confirm("Родители разрешили?");
 // }
 // -----
+/*
 function min(a, b) {
-  return a > b ? a : b;
+  return a < b ? a : b;
 }
+*/
+// -----
+/*
+function ask(question, yes, no) {
+  if (confirm(question)) {
+    yes();
+  }
+  no();
+}
+ask(
+  "Вы согласны?",
+  function () {
+    alert("Вы согласились.");
+  },
+  function () {
+    alert("Вы отменили выполнение.");
+  }
+);
+*/
+// -----
+//Function declaration
+/*
+let age = prompt("What is your age?");
+
+if (age < 18) {
+  function welcome() {
+    alert("Hello");
+  }
+} else {
+  function welcome() {
+    alert("Good day");
+  }
+}
+welcome();
+*/
+//Function Expression
+let age = prompt("What is your age?");
+
+let welcome;
+if (age < 18) {
+  welcome = function () {
+    alert("Hello");
+  };
+} else {
+  welcome = function () {
+    alert("Good day");
+  };
+}
+welcome();
