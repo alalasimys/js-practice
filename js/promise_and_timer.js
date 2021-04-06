@@ -127,6 +127,7 @@ Promise.race([promiseA, promiseB])
   .then((result) => console.log(result)) // "promiseA"
   .catch((err) => console.log(err));
 
+//---Promise.resolve(), Promise.reject() и Promise.finally()
 const getMessage = function () {
   const input = prompt("Введите сообщение");
 
