@@ -31,6 +31,7 @@
 // }
 // console.log(reverseWords("The quick brown fox jumps over the lazy dog."));
 /*------------------------------------------------*/
+/*
 function friend(friends) {
   return friends.reduce((acc, friend) => {
     if (friend.length === 4) {
@@ -40,3 +41,47 @@ function friend(friends) {
   }, []);
 }
 console.log(friend(["Ryan", "Kieran", "Mark"]));
+*/
+/*------------------------------------------------*/
+function broken(str) {
+  let strArr = str.split("");
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr[i] === "1") {
+      strArr.splice(strArr.indexOf(strArr[i]), 1, 0);
+    }
+    if (strArr[i] === "0") {
+      strArr.splice(strArr.indexOf(strArr[i]), 1, 1);
+    }
+  }
+  return strArr.join("");
+  //return str.split('').map(a => a == "0" ? "1" : "0").join('');
+}
+//console.log(broken("10000000101101111110011001000"));
+function outed(meet, boss) {
+  let average = 0;
+  let total = 0;
+  for (const key in meet) {
+    total += meet[key];
+  }
+  total += meet[boss];
+  average = total / Object.keys(meet).length;
+  return average <= 5 ? "Get Out Now!" : "Nice Work Champ!";
+}
+console.log(
+  outed(
+    {
+      tim: 0,
+      jim: 2,
+      randy: 0,
+      sandy: 7,
+      andy: 0,
+      katie: 5,
+      laura: 1,
+      saajid: 2,
+      alex: 3,
+      john: 2,
+      mr: 0,
+    },
+    "laura"
+  )
+);
