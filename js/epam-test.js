@@ -53,4 +53,4 @@ alert(arr.length);
 console.log({}.toString()); //[object Object]
 
 var result = "ten" * 2;
-console.log(result);
+console.log("result", result);

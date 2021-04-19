@@ -109,3 +109,10 @@ let b = new B();
 
 alert(a == b); // true
 */
+/*
+const user = {};
+
+alert(user?.address?.street);
+*/
+let id = Symbol("id");
+console.log("🚀 ~ file: obj.js ~ line 117 ~ id", id);
