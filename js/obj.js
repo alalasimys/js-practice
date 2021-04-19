@@ -110,9 +110,18 @@ let b = new B();
 alert(a == b); // true
 */
 /*
-const user = {};
+function Accumulator(startingValue) {
+  this.value = startingValue;
+  this.read = function () {
+    let promtValue = +prompt("Сколько нужно добавить?", 0);
+    return (this.value += promtValue);
+  };
+}
 
-alert(user?.address?.street);
+let accumulator = new Accumulator(1); // начальное значение 1
+
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+
+alert(accumulator.value); // выведет сумму этих значений
 */
-let id = Symbol("id");
-console.log("🚀 ~ file: obj.js ~ line 117 ~ id", id);
