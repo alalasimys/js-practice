@@ -434,3 +434,57 @@ function b() {
   console.log(a);
 }
 b();
+
+//2 - Что будет выведено в консоль? - foo = "bar
+/*
+var foo = "foo";
+
+function bar() {
+  var foo = "bar";
+  console.log(foo);
+}
+
+bar();
+
+// 5 * index: 5
+for (var i = 0; i < 5; i++) {
+  setTimeout(function () {
+    console.log("index: " + i);
+  }, 1000);
+}
+*/
+
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+
+let values = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+console.log(unique(values)); // Hare,Krishna,:-O
+
+console.log("addxx".slice(-2));
+
+let $$ = "dddd";
+console.log($$);
+let _Var = 1;
+console.log(_Var);
+
+const aaa = [1, 2, 3, 4, 5, "6", 7];
+// console.log(aaa.filter((i, el) => el !== 4)); //[1, 2, 3, 4]
+console.log([...aaa.slice(0, 5), ...aaa.slice(6)]);
+console.log(aaa.slice(-6));
+console.log(
+  aaa.forEach((el, ind) => {
+    el += 1;
+  })
+);
