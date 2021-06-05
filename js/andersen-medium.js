@@ -79,10 +79,10 @@ false
 */
 
 //10
-/*
+
 const arr = [1, 2, 3, 4, 5, "6", 7, 8, 9];
-console.log([...arr.slice(0, 5), ...arr.slice(6)]);
-*/
+console.log(arr);
+console.log([...arr.slice(0, 5), ...arr.slice(6)]); //[1, 2, 3, 4, 5, 7, 8, 9]
 
 //11 -- 17
 // console.log(/\s+/.exec("9,8,7,6,5,4,3,2,1 Start!").index);
@@ -404,12 +404,6 @@ var f = addTwo();
 console.log(f());
 console.log(f());
 */
-Promise.reject("a")
-  .catch((p) => p + "b")
-  .catch((p) => p + "c")
-  .then((p) => p + "d")
-  .finally((p) => p + "e")
-  .then((p) => console.log(p));
 
 // man, undefined
 /*
@@ -488,3 +482,79 @@ console.log(
     el += 1;
   })
 );
+
+// --Какое регулярное выражение не распознает почту myname@domain.ru? --
+/\w+\W+domain\w+\W+\w+/;
+
+// Что означает запись const {name, age, job} = person ? -- const person ={name,age,job}
+
+//Можно добавить JavaScript в HTML-документ при помощи специального тега <script>. Он может быть помещен в раздел <head> HTML-документа, <body> или после него. В зависимости от того, когда необходимо загрузить JavaScript.
+
+//
+console.log(Number(0x55));
+// console.log(Number(0b1002));
+console.log(Number(5e-2));
+// console.log(Number(015));
+
+//
+console.log(NaN + "1");
+console.log(1 / Infinity);
+console.log(0 / 0);
+console.log(-5 / 0);
+
+// a=3
+var a = 1;
+a = 2;
+var a = 3;
+
+console.log(a);
+
+console.log(["one", "two", "three", "four"].join());
+
+// Почему функции, созданные с помощью конструкции new Function не могут использовать замыкания? -- Функции, создаваемые через new Function, имеют значением [[Scope]] не внешний объект переменных, а window. Следствие – такие функции не могут использовать замыкание. Но это хорошо, так как бережёт от ошибок проектирования, да и при сжатии JavaScript проблем не будет. Если же внешние переменные реально нужны – их можно передать в качестве параметров.
+
+//Что такое объект события? -- Объект event предназначен для получения различной информации о событии в обработчике события. Событие – это сигнал от браузера о том, что что-то произошло. Все DOM-узлы подают такие сигналы (хотя события бывают и не только в DOM).
+
+// Чему будет равна переменная b после выполнения следующего кода?
+
+var a = "1",
+  bbb = 4;
+
+switch (a) {
+  case 1:
+    bbb = 1;
+  case 2:
+    bbb = 2;
+    break;
+  default:
+    bbb = 3;
+}
+
+console.log(bbb);
+
+// Что выведет в консоль приведенный ниже код? -- sayHi is not a function
+/*
+sayHi("GeekBrains");
+var sayHi = function (name) {
+  console.log("hello, " + name);
+};
+*/
+//
+/*
+const q = [1, 2, 3, 4, 5, 5, 4, 3, 2, 1];
+const w = new Set(q); //Set(5) {1, 2, 3, 4, 5}
+w.join(" "); //Uncaught TypeError: w.join is not a function
+*/
+
+// func.get(1) === 2
+
+function func(r) {
+  var r = 2;
+  return r;
+}
+
+func.get = function (r) {
+  return func();
+};
+
+console.log(func.get(1));
