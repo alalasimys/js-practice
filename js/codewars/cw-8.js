@@ -183,6 +183,7 @@
 // console.log(greetDevelopers(list1));
 //------------------------------------------------------------------
 
+/*
 var obj = {
   item1: 1,
   item2: [123, "two", 3.0],
@@ -195,3 +196,54 @@ localStorage.setItem("myKey", serialObj); //запишем его в храни�
 
 var returnObj = JSON.parse(localStorage.getItem("myKey"));
 console.log(returnObj);
+*/
+
+//------------------------------------------------------------------
+function digitize(n) {
+  return n
+    .toString()
+    .split("")
+    .reverse()
+    .map((s) => +s);
+}
+// console.log(digitize(35231));
+//------------------------------------------------------------------
+function countBy(x, n) {
+  const z = [];
+  for (let i = x; z.length < n; i += x) {
+    const element = i;
+    z.push(element);
+  }
+  return z;
+}
+// console.log(countBy(2, 5));
+// console.log(countBy(1, 10));
+//------------------------------------------------------------------
+function getAverage(marks) {
+  //TODO : calculate the downward rounded average of the marks array
+  const total = marks.reduce((total, amount) => {
+    return (total += amount);
+  }, 0);
+  return Math.floor(total / marks.length);
+}
+
+// console.log(getAverage([2, 2, 2, 2]));
+//------------------------------------------------------------------
+function fizzbuzz(n) {
+  const exp = [];
+  for (let i = 1; exp.length < n; i++) {
+    let element = i;
+    if (i % 3 === 0) {
+      element = "Fizz";
+    }
+    if (i % 5 === 0) {
+      element = "Buzz";
+    }
+    if (i % 5 === 0 && i % 3 === 0) {
+      element = "FizzBuzz";
+    }
+    exp.push(element);
+  }
+  return exp;
+}
+// console.log(fizzbuzz(10));

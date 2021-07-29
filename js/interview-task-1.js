@@ -203,17 +203,3 @@ for (let i = 10; i < 15; i++) {
 }
 
 console.log(fibonRow.join(" "));
-
-var f = function () {
-  console.log(1);
-};
-
-var execute = function (f) {
-  setTimeout(f, 1000);
-};
-
-execute(f); // что выведет в консоль и почему
-
-f = function () {
-  console.log(2);
-};
