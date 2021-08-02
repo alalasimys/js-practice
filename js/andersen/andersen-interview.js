@@ -127,8 +127,8 @@ fn(); //Cannot read property 'prop' of undefined
 */
 //17 -- Что выведет в консоль 'abc' === new String('abc')? 2) Будет ли ответ аналогичен, если === заменить на ==? --false, нет
 
-console.log("abc" === new String("abc")); //false
-console.log("abc" == new String("abc")); //true
+// console.log("abc" === new String("abc")); //false
+// console.log("abc" == new String("abc")); //true
 
 //18 -- Что такое семантическая верстка? -- Подход к написанию HTML  с учетом семантики тегов, предполагающий логичную и последовательную иерархию страницы
 
@@ -146,7 +146,7 @@ function clear(obj) {
 }
 
 clear(a3); // undefined
-console.log(a3);
+// console.log(a3); //{x: 40}
 
 //26 --Как расшифровывается HTTP? -- HyperText Transfer Protocol = Протокол передачи гипертекста
 
@@ -163,3 +163,54 @@ Promise.reject("a")
   .finally((p) => p + "e")
   .then((p) => console.log(p));
   */
+
+//31
+
+// for (var i = 0; i < 10; i++) {
+//   setTimeout(() => {
+//     console.log(i); //10 раз 10
+//   });
+// }
+
+// for (let i = 0; i < 10; i++) {
+//   setTimeout(() => {
+//     console.log(i); //от 0 до 9
+//   });
+// }
+
+//32 Что произойдет при исполнении этого кода? -- 40
+
+// const obj = {
+//   x: 10,
+//   y: 20,
+// };
+// const prop = Object.keys(obj).reverse().join("");
+// obj.xy = 30;
+// obj.yx = 40;
+// obj.x10y20 = 50;
+// obj.y20x10 = 60;
+// const result = obj[prop];
+// console.log(result); //40
+
+//33 --- С помощью чего можно обработать любое динамически изменяемое количество аргументов функции? --- свойства arguments внутри вызванной функции
+
+//34 Что будет выведено в консоль?---10
+
+// function foo() {}
+// foo.x = 10;
+// console.log(foo.x); //10
+
+//35 Что будет выведено в консоль? --- promise, promise
+
+// async function bar() {
+//   return Promise.resolve(10);
+// }
+
+// async function foo() {}
+
+// const rest1 = foo();
+// const rest2 = bar();
+
+// console.log(rest1, rest2);
+
+//36 --- Существует ли возможность на странице, полученной с одного домена отправить запрос на другой домен? --- Да, но можно отправить только GET запрос, так как он считается безопасным

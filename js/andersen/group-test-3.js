@@ -16,9 +16,9 @@ function calcSquare(x) {
 }
 //----------------------------------
 function logThis() {
-  console.log(this);
+  console.log("logThis", this);
 }
-logThis();
+logThis(); //undedined
 
 const objLogThis = {
   value: 100,
@@ -38,4 +38,4 @@ const userThis = {
   },
 };
 setTimeout(userThis.closeApp, 1000); //has just closed app!
-setTimeout(userThis.closeApp(), 1000); //Roman has just closed app!
+setTimeout(() => userThis.closeApp(), 1000); //Roman has just closed app!
