@@ -57,6 +57,8 @@ function broken(str) {
   //return str.split('').map(a => a == "0" ? "1" : "0").join('');
 }
 //console.log(broken("10000000101101111110011001000"));
+//
+/*
 function outed(meet, boss) {
   let average = 0;
   let total = 0;
@@ -85,3 +87,61 @@ console.log(
     "laura"
   )
 );
+*/
+//
+/*
+function NBAplayer(name, team, ppg) {
+  this.name = name;
+  this.team = team;
+  this.ppg = ppg;
+}
+
+var iverson = new NBAplayer("Iverson", "76ers", 11.2);
+console.log(typeof iverson);
+var jordan = new NBAplayer("Jordan", "bulls", 20.2);
+
+function sumPPG(playerOne, playerTwo) {
+  return playerOne.ppg + playerTwo.ppg;
+}
+
+console.log(sumPPG(iverson, jordan));
+*/
+//
+class Song {
+  listeners = [];
+
+  constructor(title, artist) {
+    this.title = title;
+    this.artist = artist;
+  }
+
+  howMany(people) {
+    if (this.listeners.length === 0) {
+      this.listeners = people;
+
+      return people.length;
+    }
+
+    const newListeners = [];
+
+    people.forEach((item) => {
+      const exist = this.listeners.find(
+        (l) => l.trim().toLowerCase() === item.trim().toLowerCase()
+      );
+
+      if (!exist) {
+        newListeners.push(item);
+        this.listeners.push(item);
+      }
+    });
+
+    return newListeners.length;
+  }
+}
+
+let mountMoose = new Song("Mount Moose", "The Snazzy Moose");
+
+console.log(
+  mountMoose.howMany(["JOHN", "FRED", "BOB", "CARL", "RYAN", "KATE"])
+);
+console.log(mountMoose.howMany(["Jack", "jacK"]));
