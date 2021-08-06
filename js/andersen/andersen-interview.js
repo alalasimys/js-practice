@@ -166,17 +166,17 @@ Promise.reject("a")
 
 //31
 
-// for (var i = 0; i < 10; i++) {
-//   setTimeout(() => {
-//     console.log(i); //10 раз 10
-//   });
-// }
+for (var i = 0; i < 10; i++) {
+  setTimeout(() => {
+    console.log(i); //10 раз 10
+  });
+}
 
-// for (let i = 0; i < 10; i++) {
-//   setTimeout(() => {
-//     console.log(i); //от 0 до 9
-//   });
-// }
+for (let i = 0; i < 10; i++) {
+  setTimeout(() => {
+    console.log(i); //от 0 до 9
+  });
+}
 
 //32 Что произойдет при исполнении этого кода? -- 40
 

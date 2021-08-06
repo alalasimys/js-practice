@@ -53,3 +53,15 @@ if (true) {
 }
 
 // console.log(r, o, p); //-- p is not defined
+//7
+const strstr = "111";
+const arr = [1, 2, 3];
+const roo = function () {};
+
+arr.x = 20;
+roo.x = 30;
+strstr.x = 40;
+
+console.log("arr.x", arr.x); //20
+console.log("roo.x", roo.x); //30
+console.log("strstr.x", strstr.x); //TypeError: Cannot create property 'x' on string '111'

@@ -58,3 +58,14 @@ console.log(str); //{"x":10,"str":"some","bool":true,"obj":{}}
 */
 const pet = new String("dog"); //String {"dog"}
 const petStr = String("dog"); //dog
+
+//5
+const arre = [1, 2];
+
+const reverseArre = arre.reverse();
+
+reverseArre.push(3);
+
+const unitedArre = [...arre, ...reverseArre];
+
+console.log("unitedArre", unitedArre); //[2, 1, 3, 2, 1, 3]

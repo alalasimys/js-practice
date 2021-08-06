@@ -131,12 +131,16 @@ async function foo() {}
 console.log(foo()); //Promise {<fulfilled>: undefined}
 */
 //10
-/*
-const id = fetch("https://jsonplaceholder.typicode.com/todos/1")
+
+const id = await fetch("https://jsonplaceholder.typicode.com/todos/1")
   .then((response) => response.json())
   .then((item) => item.id);
-console.log(id); // Promise {<pending>}
-*/
+
+const ida = fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => response.json())
+  .then((item) => item.id);
+console.log("await", id); // Promise {<pending>}
+
 //11 -- log, p1, p2, st2, st1
 /*
 setTimeout(() => {
@@ -154,3 +158,32 @@ setTimeout(() => {
 
 console.log("log");
 */
+
+//12
+function doSomethingElse() {
+  return "doSomethingElse";
+}
+
+function doSomething() {
+  return Promise.resolve("doSomething");
+}
+
+doSomething()
+  .then(function () {
+    return doSomethingElse();
+  })
+  .then((res) => console.log("1", res)); //doSomethingElse
+
+doSomething()
+  .then(function () {
+    doSomethingElse();
+  })
+  .then((res) => console.log("2", res)); //undefined
+
+doSomething()
+  .then(doSomethingElse())
+  .then((res) => console.log("3", res)); //doSomething
+
+doSomething()
+  .then(doSomethingElse)
+  .then((res) => console.log("4", res)); //doSomethingElse

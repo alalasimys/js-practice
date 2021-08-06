@@ -123,14 +123,15 @@ console.log(max.getName(), max.age); // "Max", 20
 */
 //8
 
-// const x = Promise.resolve(10).then(() => 20);
-// const y = Object.create(x);
+const x = Promise.resolve(10).then(() => 20);
+const y = Object.create(x);
 
-// console.log(y.__proto__ === Promise.prototype); //false
-// console.log(y.__proto__ === Object.prototype); //false
-// console.log(y.__proto__.__proto__ === Promise.prototype); //true
-// console.log(y.__proto__.__proto__.__proto__ === Object.prototype); //true
-// console.log(y.__proto__ === null); //false
+console.log(y.__proto__ === x); //true
+console.log(y.__proto__ === Promise.prototype); //false
+console.log(y.__proto__ === Object.prototype); //false
+console.log(y.__proto__.__proto__ === Promise.prototype); //true
+console.log(y.__proto__.__proto__.__proto__ === Object.prototype); //true
+console.log(y.__proto__ === null); //false
 
 //9
 
@@ -154,3 +155,23 @@ console.log(max.getName(), max.age); // "Max", 20
 // const max = new Student("Max", 20);
 
 // console.log(max.getName(), max.age); // TypeError: Cannot read property 'name' of undefined
+
+//10
+/*
+class Samurai {
+  constructor(name) {
+    this.name = name;
+  }
+  hello() {
+    alert(this.name);
+  }
+}
+
+const shogun = new Samurai("Alla");
+
+console.log(shogun);
+console.log(shogun.__proto__ === Samurai.prototype); //Samurai.prototype
+console.log(shogun.__proto__.__proto__ === Object.prototype); //Object.prototype
+console.log(shogun.__proto__.constructor.__proto__ === Function.prototype); //Function.prototype
+console.log(shogun.__proto__.__proto__.__proto__ === null); //null
+*/
