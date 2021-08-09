@@ -60,8 +60,8 @@ const roo = function () {};
 
 arr.x = 20;
 roo.x = 30;
-strstr.x = 40;
+// strstr.x = 40;
 
 console.log("arr.x", arr.x); //20
 console.log("roo.x", roo.x); //30
-console.log("strstr.x", strstr.x); //TypeError: Cannot create property 'x' on string '111'
+// console.log("strstr.x", strstr.x); //TypeError: Cannot create property 'x' on string '111'
